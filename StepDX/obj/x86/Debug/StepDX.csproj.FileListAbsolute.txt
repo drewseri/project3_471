@@ -1,0 +1,9 @@
+c:\users\acer\documents\visual studio 2010\Projects\StepDX\StepDX\bin\Debug\StepDX.exe
+c:\users\acer\documents\visual studio 2010\Projects\StepDX\StepDX\bin\Debug\StepDX.pdb
+c:\users\acer\documents\visual studio 2010\Projects\StepDX\StepDX\obj\x86\Debug\StepDX.Properties.Resources.resources
+c:\users\acer\documents\visual studio 2010\Projects\StepDX\StepDX\obj\x86\Debug\StepDX.csproj.GenerateResource.Cache
+c:\users\acer\documents\visual studio 2010\Projects\StepDX\StepDX\obj\x86\Debug\StepDX.exe
+c:\users\acer\documents\visual studio 2010\Projects\StepDX\StepDX\obj\x86\Debug\StepDX.pdb
+c:\users\acer\documents\visual studio 2010\Projects\StepDX\StepDX\bin\Debug\StepDX.exe.config
+c:\users\acer\documents\visual studio 2010\Projects\StepDX\StepDX\obj\x86\Debug\StepDX.Game.resources
+C:\Users\Acer\Documents\Visual Studio 2010\Projects\StepDX\StepDX\obj\x86\Debug\StepDX.csprojResolveAssemblyReference.cache
