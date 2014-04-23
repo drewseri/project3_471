@@ -120,6 +120,9 @@ namespace StepDX
             pt.Color = Color.Transparent;
             world.Add(pt);
 
+
+            AddFiveTextures();
+
             Texture spritetexture = TextureLoader.FromFile(device, "../../guy8.bmp");
             player.Tex = spritetexture;
             player.AddVertex(new Vector2(-0.2f, 0));
@@ -133,6 +136,96 @@ namespace StepDX
             player.Color = Color.Transparent;
             player.Transparent = true;
             player.P = new Vector2(0.5f, 1);
+        }
+
+        void AddFiveTextures()
+        {
+            Texture texture = TextureLoader.FromFile(device, "../../stone08.bmp");
+            PolygonTextured poly = new PolygonTextured();
+            poly.Tex = texture;
+            poly.AddVertex(new Vector2(11.0f, 1.5f));
+            poly.AddTex(new Vector2(0, 1));
+            poly.AddVertex(new Vector2(11.9f, 1.5f));
+            poly.AddTex(new Vector2(0, 0));
+            poly.AddVertex(new Vector2(11.9f, 1.3f));
+            poly.AddTex(new Vector2(1, 0));
+            poly.AddVertex(new Vector2(11.5f, 1.0f));
+            poly.AddTex(new Vector2(2, 0));
+            poly.AddVertex(new Vector2(11.2f, 1.3f));
+            poly.AddTex(new Vector2(1, 1));
+            poly.Color = Color.Transparent;
+            world.Add(poly);
+
+            texture = TextureLoader.FromFile(device, "../../stone08.bmp");
+            poly = new PolygonTextured();
+            poly.Tex = texture;
+            poly.AddVertex(new Vector2(13.0f, 1.5f));
+            poly.AddTex(new Vector2(0, 1));
+            poly.AddVertex(new Vector2(13.5f, 1.8f));
+            poly.AddTex(new Vector2(2, 0));
+            poly.AddVertex(new Vector2(13.9f, 1.5f));
+            poly.AddTex(new Vector2(0, 0));
+            poly.AddVertex(new Vector2(13.9f, 1.3f));
+            poly.AddTex(new Vector2(1, 0));
+            poly.AddVertex(new Vector2(13.2f, 1.3f));
+            poly.AddTex(new Vector2(1, 1));
+
+            poly.Color = Color.Transparent;
+            world.Add(poly);
+
+            texture = TextureLoader.FromFile(device, "../../stone08.bmp");
+            poly = new PolygonTextured();
+            poly.Tex = texture;
+            poly.AddVertex(new Vector2(9.0f, 3.0f));
+            poly.AddTex(new Vector2(0, 1));
+            poly.AddVertex(new Vector2(10.9f, 3.0f));
+            poly.AddTex(new Vector2(1, 0));
+            poly.AddVertex(new Vector2(10.0f, 2.0f));
+            poly.AddTex(new Vector2(0, 0));
+
+
+
+            poly.Color = Color.Transparent;
+            world.Add(poly);
+
+
+            texture = TextureLoader.FromFile(device, "../../stone08.bmp");
+            poly = new PolygonTextured();
+            poly.Tex = texture;
+            poly.AddVertex(new Vector2(14.0f, 2.5f));
+            poly.AddTex(new Vector2(1, 0));
+            poly.AddVertex(new Vector2(14.9f, 5.0f));
+            poly.AddTex(new Vector2(0, 1));
+ 
+            poly.AddVertex(new Vector2(14.9f, 1.0f));
+            poly.AddTex(new Vector2(0, 0));
+
+
+
+            poly.Color = Color.Transparent;
+            world.Add(poly);
+
+
+
+
+            texture = TextureLoader.FromFile(device, "../../stone08.bmp");
+            poly = new PolygonTextured();
+            poly.Tex = texture;
+            poly.AddVertex(new Vector2(12.0f, 3.0f));
+            poly.AddTex(new Vector2(1, 0));
+            poly.AddVertex(new Vector2(14.0f, 3.0f));
+            poly.AddTex(new Vector2(0, 1));
+
+            poly.AddVertex(new Vector2(13.25f, 2.0f));
+            poly.AddTex(new Vector2(0, 0));
+
+            poly.AddVertex(new Vector2(12.75f, 2.0f));
+            poly.AddTex(new Vector2(0, 0));
+
+
+
+            poly.Color = Color.Transparent;
+            world.Add(poly);
         }
 
         /// <summary>
