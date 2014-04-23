@@ -43,6 +43,11 @@ namespace StepDX
         List<Polygon> world = new List<Polygon>();
 
         /// <summary>
+        /// All of the bullets
+        /// </summary>
+        List<Polygon> bullets = new List<Polygon>();
+
+        /// <summary>
         /// What the last time reading was
         /// </summary>
         private long lastTime;
@@ -119,9 +124,10 @@ namespace StepDX
             pt.AddTex(new Vector2(1, 1));
             pt.Color = Color.Transparent;
             world.Add(pt);
-
-
+            
             AddFiveTextures();
+
+            AddBullet();
 
             Texture spritetexture = TextureLoader.FromFile(device, "../../guy8.bmp");
             player.Tex = spritetexture;
@@ -136,6 +142,30 @@ namespace StepDX
             player.Color = Color.Transparent;
             player.Transparent = true;
             player.P = new Vector2(0.5f, 1);
+        }
+
+        void AddBullet()
+        {
+            Texture texture = TextureLoader.FromFile(device, "../../bullet.bmp");
+            Bullet poly = new Bullet();
+            poly.Tex = texture;
+
+            poly.AddVertex(new Vector2(-0.2f, 0));
+            poly.AddTex(new Vector2(-0.2f, 0));
+            
+            poly.AddVertex(new Vector2(-0.2f, 1));
+            poly.AddTex(new Vector2(-0.2f, 1));
+            
+            poly.AddVertex(new Vector2(1, 1));
+            poly.AddTex(new Vector2(1, 1));
+            
+            poly.AddVertex(new Vector2(1, 0));
+            poly.AddTex(new Vector2(1, 0));
+            
+            poly.Color = Color.Transparent;
+            poly.Transparent = true;
+            poly.P = new Vector2(5, 2);
+            bullets.Add(poly);
         }
 
         void AddFiveTextures()
@@ -256,6 +286,9 @@ namespace StepDX
                 foreach (Polygon p in world)
                     p.Advance(step);
 
+                foreach (Bullet b in bullets)
+                    b.Advance(step);
+
                 foreach (Polygon p in world)
                 {
                     if (collision.Test(player, p))
@@ -319,6 +352,11 @@ namespace StepDX
             foreach (Polygon p in world)
             {
                 p.Render(device);
+            }
+
+            foreach (Bullet b in bullets)
+            {
+                b.Render(device);
             }
 
             player.Render(device);
@@ -398,6 +436,5 @@ namespace StepDX
             p.Color = color;
             world.Add(p);
         }
-
     }
 }
