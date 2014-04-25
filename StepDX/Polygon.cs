@@ -98,5 +98,13 @@ namespace StepDX
         {
         }
 
+        /// <summary>
+        /// Setter for player
+        /// </summary>
+        /// <param name="player">The player in the game</param>
+        public virtual void SetPlayer(GameSprite player)
+        {
+        }
+
     }
 }

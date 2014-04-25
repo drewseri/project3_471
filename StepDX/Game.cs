@@ -146,21 +146,25 @@ namespace StepDX
 
         void AddBullet()
         {
-            Texture texture = TextureLoader.FromFile(device, "../../bullet.bmp");
+            Texture texture = TextureLoader.FromFile(device, "../../bullet.png");
             Bullet poly = new Bullet();
+            poly.SetPlayer(player);
             poly.Tex = texture;
 
-            poly.AddVertex(new Vector2(-0.2f, 0));
-            poly.AddTex(new Vector2(-0.2f, 0));
+            poly.AddVertex(new Vector2(0.6f, 0));
+            poly.AddTex(new Vector2(0.3f, 0));
+
+            poly.AddVertex(new Vector2(0.2f, 0.25f));
+            poly.AddTex(new Vector2(-0.05f, 0.5f));
+
+            poly.AddVertex(new Vector2(0.6f, 0.5f));
+            poly.AddTex(new Vector2(0.3f, 1));
             
-            poly.AddVertex(new Vector2(-0.2f, 1));
-            poly.AddTex(new Vector2(-0.2f, 1));
-            
-            poly.AddVertex(new Vector2(1, 1));
-            poly.AddTex(new Vector2(1, 1));
+            poly.AddVertex(new Vector2(1, 0.5f));
+            poly.AddTex(new Vector2(0.9f, 1));
             
             poly.AddVertex(new Vector2(1, 0));
-            poly.AddTex(new Vector2(1, 0));
+            poly.AddTex(new Vector2(0.9f, 0));
             
             poly.Color = Color.Transparent;
             poly.Transparent = true;
@@ -306,6 +310,29 @@ namespace StepDX
                         }
                         player.V = v;
                         player.setOnGround(onGround);
+                        player.Advance(0);
+                    }
+                }
+
+                foreach (Bullet b in bullets)
+                {
+                    if (collision.Test(player, b))
+                    {
+                        // GAME OVER!!!!!
+                        // Treating like platform for now for testing
+
+                        float depth = collision.P1inP2 ?
+                                  collision.Depth : -collision.Depth;
+                        player.P = player.P + collision.N * depth;
+                        Vector2 v = player.V;
+                        if (collision.N.X != 0)
+                            v.X = 0;
+                        if (collision.N.Y != 0)
+                        {
+                            v.Y = 0;
+                            onGround = true;
+                        }
+                        player.V = v;
                         player.Advance(0);
                     }
                 }
